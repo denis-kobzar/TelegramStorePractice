@@ -10,16 +10,28 @@ namespace TelegramStorePractice.Store
 {
     internal sealed class Store
     {
-        private List<StoreClient> _storeClients = new List<StoreClient>();
+        private List<IStoreClient> _storeClients = new List<IStoreClient>();
+        private static Store store;
 
-        public void Subscribe(StoreClient client)
+        public static Store GetInstance()
         {
-            _storeClients.Add(client);
+            if (store == null)
+            {
+                store = new Store();
+            }
+            return store;
+        }
+
+        private Store() { }
+
+        public void Subscribe(IStoreClient client)
+        {
+            store._storeClients.Add(client);
         }
 
         private void Notify(ModelBase model)
         {
-            foreach (var client in _storeClients)
+            foreach (var client in store._storeClients)
             {
                 client.Update(model);
             }

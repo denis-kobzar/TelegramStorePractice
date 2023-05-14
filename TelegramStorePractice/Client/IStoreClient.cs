@@ -7,8 +7,8 @@ using TelegramStorePractice.Model;
 
 namespace TelegramStorePractice.Client
 {
-    internal abstract class StoreClient
+    internal interface IStoreClient
     {
-        public abstract void Update(ModelBase model);
+        public void Update(ModelBase model);
     }
 }

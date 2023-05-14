@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelegramStorePractice.Model
 {
-    internal class UserModel
+    internal class UserModel : ModelBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,6 +19,11 @@ namespace TelegramStorePractice.Model
             Name = name;
             Link = link;
             Description = description;
+        }
+
+        public override string ToString()
+        {
+            return $"Id: {Id} Name:{Name} Link: {Link} Description: {Description}";
         }
     }
 }
