@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelegramStorePractice.Model
 {
-    internal abstract class Model
+    internal abstract class ModelBase
     {
     }
 }
